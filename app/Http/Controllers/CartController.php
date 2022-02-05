@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 
@@ -46,7 +47,7 @@ class CartController extends BaseController
 
     $cart->update(['status' => 'past']);
 
-    foreach (json_decode($request->input('products')) as $cart_product) {
+    foreach ($request->input('products') as $cart_product) {
       $product = Product::find($cart_product);
       $cart->products()->attach($product);
     }
