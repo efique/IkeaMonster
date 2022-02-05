@@ -17,7 +17,7 @@ class UserController extends BaseController
    */
   public function index()
   {
-    $users = User::latest()->get();
+    $users = User::with('promotion')->latest()->get();
 
     return $this->sendResponse($users, 'User list');
   }
