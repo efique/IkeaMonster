@@ -46,7 +46,7 @@ class UserController extends BaseController
     
     $cart = Cart::create(['address' => $request->input('cart')['address'], 'status' => 'current', 'user_id' => $user->id]);
 
-    return $this->sendResponse($user, 'User Information has been created');
+    return $this->sendResponse([$user, "cart_id" => $cart->id], 'User Information has been created');
   }
 
      /**
