@@ -25,6 +25,8 @@ Route::post('connexion',[UserController::class, 'connexion']);
 
 Route::post('user',[UserController::class, 'store']);
 
+Route::get('user',[UserController::class, 'index']);
+
 Route::put('cart/{id}',[CartController::class, 'update']);
 
 Route::post('stripe',[StripeController::class, 'store']);
