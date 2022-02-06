@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
             ->count(25)
             ->create();
 
+        User::create(['name' => 'admin',
+        'email' => 'admin@admin.com',
+        'created_at' => now(),
+        'updated_at' => now()]);
+
         Product::factory()
             ->count(25)
             ->create();
